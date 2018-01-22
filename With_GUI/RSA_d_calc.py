@@ -1,7 +1,15 @@
-import sys
+import sys, os, PyQt5
 from PyQt5 import QtCore, uic, QtWidgets
 
-qtCreatorFile = "RSA_d_calc.ui"
+if hasattr(sys, "_MEIPASS"):
+    qtCreatorFile = os.path.join(sys._MEIPASS, "RSA_d_calc.ui")
+    pyqt = os.path.dirname(PyQt5.__file__)
+    QtWidgets.QApplication.addLibraryPath(os.path.join(pyqt, "plugins"))
+    os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = sys._MEIPASS
+else:
+    qtCreatorFile = "RSA_d_calc.ui"
+
+#qtCreatorFile = "RSA_d_calc.ui"
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
