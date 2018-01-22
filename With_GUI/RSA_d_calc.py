@@ -1,7 +1,7 @@
 import sys, os, PyQt5
 from PyQt5 import QtCore, uic, QtWidgets
 
-if hasattr(sys, "_MEIPASS"):
+if hasattr(sys, "_MEIPASS"):#This is meant to make the script run when compiled to one exe file using pyinstaller
     qtCreatorFile = os.path.join(sys._MEIPASS, "RSA_d_calc.ui")
     pyqt = os.path.dirname(PyQt5.__file__)
     QtWidgets.QApplication.addLibraryPath(os.path.join(pyqt, "plugins"))
